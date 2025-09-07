@@ -12,6 +12,9 @@ urlpatterns = [
     path('Admin/',views.Admin,name = 'Admin'),
     path('librarian/', views.Librarian, name = 'librarian'),
     path('member/', views.Member, name = 'member'),
+    path('book_add/',views.book_add,name='book_add'),
+    path('book_change/',views.book_change,name='book_change'),
+    path('book_delete/',views.book_delete,name='book_delete'),
     ]
     
 

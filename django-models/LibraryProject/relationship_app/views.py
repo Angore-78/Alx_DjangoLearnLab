@@ -7,7 +7,8 @@ from .models import Library
 from django.views.generic import CreateView,TemplateView
 from django.contrib.auth import login
 from .models import UserProfile
-from django.contrib.auth.decorators import user_passes_test,permission_required
+from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import permission_required
 
 
 
@@ -55,6 +56,17 @@ def list_books(response):
     books = Book.objects.all()
     context = {'book_list':books}
     return HttpResponse('relationship_app/list_books.html')
+
+def book_add(request):
+    permission_allowed= request.user.has_perm('relationship_app.can_add_book')
+    return HttpResponse('book_add.html')
+def book_change(request):
+    permission_allowed=request.user.has_perm('relationship_app.can_change_book')
+    return HttpResponse('book_change.html')
+
+def book_delete(request):
+    permission_allowed=request.user.has_perm('relationship_app.can_delete_book')
+    return HttpResponse('book_delete.html')
                   
 class LibraryDetailView(DetailView):
     model=Library
