@@ -1,0 +1,7 @@
+def is_Admin_checker(user):
+    return user.is_Admin
+
+@user_passes_test(is_Admin_checker)
+def Admin(request):
+    user_passes_test() if request.user.is_admin else HttpResponse('Access Denied')
+    return render(request,'admin_view')
