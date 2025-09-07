@@ -5,12 +5,10 @@ from django.views.generic.detail import DetailView
 from .models import Book
 from .models import Library
 from django.views.generic import CreateView,TemplateView
-from django.urls import reverse_lazy
+from django.contrib.auth import login
 
-class SignUpView(CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('signup')
-    template_name = 'registration/register.html'
+class RegisterView(TemplateView):
+    template_name = 'register.html'
 
 class LoginView(TemplateView):
     template_name = 'login.html'
