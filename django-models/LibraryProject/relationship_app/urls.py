@@ -9,9 +9,9 @@ urlpatterns = [
     path('register/', views.register,name = 'register'),
     path('login/', LoginView.as_view(template_name=""),name = 'login'),
     path('logout', LogoutView.as_view(template_name=''), name = 'logout'),
-    path('Admin/',views.Admin_page,name = 'Admin'),
-    path('librarian/', views.Librarian_page, name = 'librarian'),
-    path('member/', views.Member_page, name = 'member'),
+    path('Admin/',views.Admin,name = 'Admin'),
+    path('librarian/', views.Librarian, name = 'librarian'),
+    path('member/', views.Member, name = 'member'),
     ]
     
 
