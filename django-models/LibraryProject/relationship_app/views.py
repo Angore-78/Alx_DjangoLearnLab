@@ -34,6 +34,10 @@ def is_Member_checker(user):
 def Member(request):
     return render(request,'member_view')
 
+class SignUpView(CreateView):
+    form = UserCreationForm()
+    template_name = 'relationship_app/register.html'
+
 
 def register(request):
     return HttpResponse('register.html') 
