@@ -12,7 +12,7 @@ def library_catalogue(request):
     library_name.book.all()
 
 def specific_librarian(request):
-    librarian_name = Librarian.objects.get(name=librarian_name)
-    librarian_name.library() 
+    librarian_library= Librarian.objects.get(library='')
+    librarian_library.library() 
     
 
