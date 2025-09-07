@@ -50,7 +50,7 @@ class LogoutView(TemplateView):
 def list_books(response):
     books = Book.objects.all()
     context = {'book_list':books}
-    return render(response,'relationship_app/list_books.html',context)
+    return HttpResponse('relationship_app/list_books.html')
                   
 class LibraryDetailView(DetailView):
     model=Library
