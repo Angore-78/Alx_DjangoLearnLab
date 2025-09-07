@@ -12,6 +12,9 @@ class Book(models.Model):
     author=models.ForeignKey( Author,on_delete=models.CASCADE,related_name='book')
     def __str__(self):
         return self.title
+    class Meta:
+        permissions = [('can_add_book'),('can_change_book'),('can_delete_book')]
+        
     
 
 class Library(models.Model):
@@ -31,4 +34,6 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     role = [('Admin'),('Librarian'),('Member')]
 UserProfile.save()
+
+
     

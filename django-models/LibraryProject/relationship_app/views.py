@@ -7,7 +7,9 @@ from .models import Library
 from django.views.generic import CreateView,TemplateView
 from django.contrib.auth import login
 from .models import UserProfile
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test,permission_required
+
+
 
 def is_Admin_checker(user):
     return user.is_Admin
