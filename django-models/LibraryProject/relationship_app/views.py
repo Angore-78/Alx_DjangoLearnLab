@@ -6,7 +6,7 @@ from django.http import HttpResponse
 
 
 # Create your views here.
-def book_list(response):
+def list_books(response):
     books = Book.objects.all()
     context = {'book_list':books}
     return render(response,'relationship_app/list_books.html',context)
