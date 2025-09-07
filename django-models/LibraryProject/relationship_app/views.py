@@ -7,14 +7,19 @@ from .models import Library
 from django.views.generic import CreateView,TemplateView
 from django.contrib.auth import login
 from .models import UserProfile
+from django.contrib.auth.decorators import user_passes_test
+
 
 def admin_page(request):
+    user_passes_test() if request.user.is_admin else HttpResponse('Access Denied')
     return HttpResponse('admin_view')
 
 def librarian_page(request):
+    user_passes_test() if request.user.is_librarian else HttpResponse('Access Denied')
     return HttpResponse('librarian_view')
 
 def member_page(request):
+    user_passes_test() if request.user.is_member else HttpResponse('Access Denied')
     return HttpResponse('member_view')
 
 def register(request):
