@@ -7,8 +7,8 @@ from .models import Library
 from django.views.generic import CreateView,TemplateView
 from django.contrib.auth import login
 
-class RegisterView(TemplateView):
-    template_name = 'register.html'
+def register(request):
+    return HttpResponse('register.html') 
 
 class LoginView(TemplateView):
     template_name = 'login.html'
