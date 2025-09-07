@@ -33,7 +33,7 @@ class Librarian(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     role = [('Admin'),('Librarian'),('Member')]
-UserProfile.save()
+
 
 
     

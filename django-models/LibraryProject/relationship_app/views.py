@@ -5,28 +5,9 @@ from django.views.generic.detail import DetailView
 from .models import Book
 from .models import Library
 from django.views.generic import CreateView,TemplateView
-from django.contrib.auth import login
-from .models import UserProfile
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import permission_required
 
-
-
-def is_Admin_checker(user):
-    return user.username.startswith('admin')
-
-@user_passes_test(is_Admin_checker)
-def Admin(request):
-    user_passes_test() if request.user.is_admin else HttpResponse('Access Denied')
-    return render(request,'admin_view','member_view')
-
-
-
-def Librarian(request):
-    return render(request,'librarian_view','member_view')
-
-def Member(request):
-    return render(request,'member_view')
 
 class SignUpView(CreateView):
     form = UserCreationForm()
