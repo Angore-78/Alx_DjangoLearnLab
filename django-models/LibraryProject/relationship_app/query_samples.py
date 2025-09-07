@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from relationship_app.models import Author,Book,Library,Librarian
+from relationship_app.models import Book,Library,Librarian
 
 def book_list(request):
     books = Book.objects.all()
+    books.all()
     books.author()
 
 def library_catalogue(request):
