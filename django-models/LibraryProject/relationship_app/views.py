@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import permission_required
 
 
 def is_Admin_checker(user):
-    return user.is_Admin
+    return user.username.startswith('admin')
 
 @user_passes_test(is_Admin_checker)
 def Admin(request):
@@ -21,17 +21,10 @@ def Admin(request):
     return render(request,'admin_view')
 
 
-def is_Librarian_checker(user):
-    return user.is_Librarian
 
-@user_passes_test(is_Librarian_checker)
 def Librarian(request):
     return render(request,'librarian_view')
 
-def is_Member_checker(user):
-    return user.is_Member
-
-@user_passes_test(is_Member_checker)
 def Member(request):
     return render(request,'member_view')
 
