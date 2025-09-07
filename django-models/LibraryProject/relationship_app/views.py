@@ -18,12 +18,12 @@ def is_Admin_checker(user):
 @user_passes_test(is_Admin_checker)
 def Admin(request):
     user_passes_test() if request.user.is_admin else HttpResponse('Access Denied')
-    return render(request,'admin_view')
+    return render(request,'admin_view','member_view')
 
 
 
 def Librarian(request):
-    return render(request,'librarian_view')
+    return render(request,'librarian_view','member_view')
 
 def Member(request):
     return render(request,'member_view')
