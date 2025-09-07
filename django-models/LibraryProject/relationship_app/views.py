@@ -9,18 +9,29 @@ from django.contrib.auth import login
 from .models import UserProfile
 from django.contrib.auth.decorators import user_passes_test
 
+def is_admin_checker(user):
+    return user.is_admin
 
+@user_passes_test(is_admin_checker)
 def admin_page(request):
     user_passes_test() if request.user.is_admin else HttpResponse('Access Denied')
     return HttpResponse('admin_view')
 
+
+def is_librarian_checker(user):
+    return user.is_librarian
+
+@user_passes_test(is_librarian_checker)
 def librarian_page(request):
-    user_passes_test() if request.user.is_librarian else HttpResponse('Access Denied')
     return HttpResponse('librarian_view')
 
+def is_member_checker(user):
+    return user.is_member
+
+@user_passes_test(is_member_checker)
 def member_page(request):
-    user_passes_test() if request.user.is_member else HttpResponse('Access Denied')
     return HttpResponse('member_view')
+
 
 def register(request):
     return HttpResponse('register.html') 
