@@ -57,16 +57,17 @@ def list_books(response):
     context = {'book_list':books}
     return HttpResponse('relationship_app/list_books.html')
 
-def book_add(request):
+def add_book(request):
     permission_allowed= request.user.has_perm('relationship_app.can_add_book')
-    return HttpResponse('book_add.html')
-def book_change(request):
-    permission_allowed=request.user.has_perm('relationship_app.can_change_book')
-    return HttpResponse('book_change.html')
+    return HttpResponse('add_book.html')
 
-def book_delete(request):
+def edit_book(request):
+    permission_allowed=request.user.has_perm('relationship_app.can_change_book')
+    return HttpResponse('edit_book.html')
+
+def delete_book(request):
     permission_allowed=request.user.has_perm('relationship_app.can_delete_book')
-    return HttpResponse('book_delete.html')
+    return HttpResponse('delete_book.html')
                   
 class LibraryDetailView(DetailView):
     model=Library
