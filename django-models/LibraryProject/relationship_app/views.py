@@ -6,6 +6,16 @@ from .models import Book
 from .models import Library
 from django.views.generic import CreateView,TemplateView
 from django.contrib.auth import login
+from .models import UserProfile
+
+def admin_page(request):
+    return HttpResponse('admin_view')
+
+def librarian_page(request):
+    return HttpResponse('librarian_view')
+
+def member_page(request):
+    return HttpResponse('member_view')
 
 def register(request):
     return HttpResponse('register.html') 

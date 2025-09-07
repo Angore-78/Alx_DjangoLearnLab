@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Author(models.Model):
@@ -24,4 +25,10 @@ class Librarian(models.Model):
     library=models.OneToOneField(Library,on_delete=models.CASCADE,related_name='librarian')
     def __str__(self):
         return self.name
+    
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    role = [('Admin'),('Librarian'),('Member')]
+UserProfile.save()
     
