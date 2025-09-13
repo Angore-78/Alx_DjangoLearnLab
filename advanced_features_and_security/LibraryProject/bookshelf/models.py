@@ -11,7 +11,7 @@ class Book(models.Model):
     def __str__(self):
         return f'{self.title} by {self.author}'
     
-class CustomUserManagert(AbstractUser):
+class CustomUser(AbstractUser):
     date_of_birth = models.DateTimeField()
     profile_photo = models.ImageField()
    
