@@ -14,7 +14,7 @@ class CustomUser(AbstractUser):
     date_of_birth = models.DateTimeField()
     profile_photo = models.ImageField()
    
-classmodels.CustomUserManager: 
+classmodels.CustomUserManager(BaseUserManager): 
     def create_user(self,date_of_birth,profile_photo):
         CustomUser.objects.create(date_of_birth=date_of_birth,profile_photo=profile_photo )
     def create_superuser(self,date_of_birth,profile_photo):
