@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class Author(models.Model):
@@ -33,6 +34,10 @@ class Librarian(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     role = [('Admin'),('Librarian'),('Member')]
+
+class User(AbstractUser):
+    date_of_birth = models.DateTimeField(auto_now_add = True)
+    profile_photo = models.ImageField()
 
 
 
