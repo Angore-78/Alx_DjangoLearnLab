@@ -1,1 +1,1 @@
-<form method = 'post'>{%csrf_token%} 
+EXAMPLEFORM
