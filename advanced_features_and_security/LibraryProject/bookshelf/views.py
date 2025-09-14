@@ -1,14 +1,15 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.contrib.auth.decorators import permission_required
 from .forms import ExampleForm
 # Create your views here.
-<form method = 'post'>{%csrf_token%} 
+<ExampleForm () = 'post'>{% csrf_token %} 
 def form_example(request):
-    return HttpResponse(response 'form_example.html')
+    return HttpResponse(request ,'form_example.html')
 
 
 def book_views(request):
-    return HttpResponse(response,'book_list.html')
+    return HttpResponse(request,'book_list.html')
 
     
 @permission_required('bookshelf.can_create',raise_exception = True)
