@@ -5,13 +5,13 @@ from rest_framework import viewsets
 from .serializers import BookSerializer 
 
 # Create your views here.
-class BookList(rest_framework.generics.ListAPIView):
+class BookList(ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
 class BookViewSet(viewsets.ModelViewSet):
     add_book = Book.objects.create()
-    read_book = Book.object.get(title='')
+    read_book = Book.objects.filter(title='')
     def __str__(self):
         return self.add_book(),self.read_book()
 
