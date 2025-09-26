@@ -5,7 +5,7 @@ from django.utils import timezone
 
 #Modelserializer for Author model,inherits from serializers.ModelSerializer
 class AuthorSerializer(serializers.ModelSerializer):
-    author_name = serializers.CharField(source = 'author.name',read_inly = True)
+    author_name = serializers.CharField(source = 'author.name',read_only = True)
     class Meta:
         model = Author
         fields = ['id','name',]
