@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Book
 from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
 from rest_framework import generics 
-from .serializers import BookSerializer, AuthorSerializer
+from .serializers import BookSerializer
 
 
 
@@ -14,7 +14,7 @@ class CreateView(generics.CreateView,IsAuthenticatedOrReadOnly):
     
     
     
-class ListView(generics.ListAPIView,IsAuthenticatedOrReadOnly):
+class ListView(generics.ListAPIView,IsAuthenticated):
     querry_set = Book.objects.all()
     serializer = BookSerializer
 
