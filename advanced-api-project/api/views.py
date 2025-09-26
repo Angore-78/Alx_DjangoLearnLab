@@ -1,29 +1,32 @@
 from django.shortcuts import render
 from .models import Book
-from django.contrib.auth.models import Permission
+from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
 from rest_framework import generics 
 from .serializers import BookSerializer, AuthorSerializer
 
 
 
-class CreateView(generics.CreateView):
+class CreateView(generics.CreateView,IsAuthenticatedOrReadOnly):
     querry_set = Book.objects.all()
     serializer = BookSerializer
+
+
     
     
-class ListView(generics.ListAPIView):
+    
+class ListView(generics.ListAPIView,IsAuthenticatedOrReadOnly):
     querry_set = Book.objects.all()
     serializer = BookSerializer
 
-class DetailView(generics.RetrieveAPIView):
+class DetailView(generics.RetrieveAPIView,IsAuthenticatedOrReadOnly):
     querry_set = Book.objects.all()
     serializer = BookSerializer
 
-class UpdateView(generics.UpdateAPIView):
+class UpdateView(generics.UpdateAPIView,IsAuthenticatedOrReadOnly):
     querry_set = Book.objects.all()
     serializer = BookSerializer
 
-class DeleteView(generics.DestroyAPIView):
+class DeleteView(generics.DestroyAPIView,IsAuthenticatedOrReadOnly):
     querry_set = Book.objects.all()
     serializer = BookSerializer
 
