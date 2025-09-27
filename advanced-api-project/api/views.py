@@ -19,7 +19,8 @@ class CreateView(generics.CreateView,IsAuthenticatedOrReadOnly):
 class ListView(generics.ListAPIView,IsAuthenticated):
     querry_set = Book.objects.all()
     serializer = BookSerializer
-    filter_backend = [filters.OrderingFilter]
+    filter_backends =[filters.SearchFilter]
+    order_backend = [filters.OrderingFilter]
     ordering_fields = ['title','publication_year','author']
 
 
