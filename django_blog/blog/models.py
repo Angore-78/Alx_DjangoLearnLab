@@ -7,6 +7,9 @@ class Post(models.Model):
     published_date = models.DateTimeField(auto_now_add=True)
     author=models.ForeignKey(User,on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.title} published on {self.published_date.date}"
+
 class CustomUser(AbstractBaseUser):
     username = models.CharField(max_length=50,unique=True)
     email=models.EmailField(max_length=100,unique=True)
