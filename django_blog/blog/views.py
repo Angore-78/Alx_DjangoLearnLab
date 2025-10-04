@@ -2,9 +2,16 @@ from django.shortcuts import render
 from django.http import HttpRequest
 from .models import Post
 from django.views.generic import ListView,DeleteView,CreateView,UpdateView,DetailView
+from .forms import PostForm
 
-def index(request):
-    return render(request,'blog/index.html')
+
+def index(response,id):
+    blog_p=Post.objects.get(id=id)
+    return render(response,'blog/index.html',{'text':blog_p.})
+
+def post(response):
+    form = PostForm
+    return render(response,'blog/post.html',{"form":form})
 
 
 class BlogCreateView(CreateView):
