@@ -8,3 +8,4 @@ class PostForm(forms.Form):
 class CommentForm(forms.ModelForm):
     title=forms.CharField(max_length=200,label='comment')
     check=forms.BooleanField(required=False)
+    
