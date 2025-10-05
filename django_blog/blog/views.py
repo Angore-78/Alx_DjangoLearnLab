@@ -50,3 +50,7 @@ class BlogDeleteView(DeleteView):
 
 class CommentpdateView(CreateView,LoginRequiredMixin):
     pass
+class CommentCreateView(CreateView):
+    pass
+class CommentDeleteView(DeleteView):
+    
