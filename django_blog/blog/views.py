@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
+from django.
 from .models import Post
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DeleteView,CreateView,UpdateView,DetailView
 from .forms import PostForm,CommentForm
+
 
 
 def index(response,id):
@@ -44,3 +46,7 @@ class BlogDetailView(DetailView):
 
 class BlogDeleteView(DeleteView):
     template_name='delete.html'
+
+
+class CommentpdateView(CreateView,LoginRequiredMixin):
+    pass
