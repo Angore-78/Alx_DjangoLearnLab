@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from .models import Post
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DeleteView,CreateView,UpdateView,DetailView
@@ -53,4 +52,4 @@ class CommentpdateView(CreateView,LoginRequiredMixin):
 class CommentCreateView(CreateView):
     pass
 class CommentDeleteView(DeleteView):
-    
+    pass
