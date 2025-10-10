@@ -5,7 +5,7 @@ from posts.models import Post
 
 
 
-class CustomUser(AbstractUser,PermissionsMixin):
+class CustomUser(AbstractUser):
     bio=models.TextField()
     profile_picture=models.ImageField()
     followers=models.ManyToManyField(to='CustomUser')
