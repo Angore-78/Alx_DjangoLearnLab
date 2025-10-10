@@ -22,5 +22,6 @@ urlpatterns = [
     path('accounts/',include('accounts.urls')),
     path('posts/',include('posts.urls')),
     path('notifications/',include('notifications.urls')),
-    path('',include('django.contrib.auth.urls'))
+    path('',include('django.contrib.auth.urls')),
+    path('api/',include('api.urls'))
 ]
