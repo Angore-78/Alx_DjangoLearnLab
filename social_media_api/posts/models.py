@@ -13,4 +13,4 @@ class Comment(models.Model):
     post=models.ForeignKey(Post,on_delete=models.CASCADE)
     commenter=models.ForeignKey(User,on_delete=models.CASCADE)
 
-# Create your models here.
+
