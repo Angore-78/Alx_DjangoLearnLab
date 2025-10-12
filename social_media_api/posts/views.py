@@ -5,8 +5,7 @@ from rest_framework.viewsets import ModelViewSet,generics
 from .models import Post,Comment
 
 class PostViewset(generics.ModelViewSet):
-    querry_set=Post.objects.all()
-    order=querry_set.order_by('created_at')
+    querry_set=Post.objects.filter(author__in='following_users').order_by('created_at')
     serializer=PostSerializer
     permissions=[
         permissions.IsAuthenticatedOrReadOnly 
