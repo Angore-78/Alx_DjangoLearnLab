@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+PORT='8000'
+USER='LOCAL HOST'
+
 import os
 import secrets
 from pathlib import Path
