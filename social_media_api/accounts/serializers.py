@@ -7,19 +7,19 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
     password=serializers.CharField(write_only=True)
 
     class Meta:
-        model=CustomUser
+        model=CustomUser.get_user_model().objects.create_user
         fields=['id','username','email','bio']
         extra_kwargs={'password':{'write_only':True}}
 
 class LoginSerializer(serializers.Serializer):
     username=serializers.CharField()
     password=serializers.CharField(write_only=True)
-    token=serializers.CharField(read_only=True)
+    token=Token.objects.create()
 
     def custom_validation(self,data):
         username=data.get('username')
         password=data.get('password')
-
+        
         if username and password:
             user=authenticate(response=self.context.get('request'),
                                    username=username,password=password)
