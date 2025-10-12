@@ -14,4 +14,6 @@ class Comment(models.Model):
     post=models.ForeignKey(Post,on_delete=models.CASCADE)
     commenter=models.ForeignKey(User,on_delete=models.CASCADE)
 
-
+class Like(models.Model):
+    like=models.ForeignKey(Post,on_delete=models.CASCADE)
+    user=models.ForeignKey(user,on_delete=models.PROTECT)

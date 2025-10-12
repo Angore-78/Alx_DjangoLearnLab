@@ -13,9 +13,7 @@ class CustomUser(AbstractUser):
 
 
 
-class Like(models.Model):
-    like=models.ForeignKey(Post,on_delete=models.CASCADE)
-    user=models.ForeignKey(CustomUser,on_delete=models.PROTECT)
+
 
 
 
