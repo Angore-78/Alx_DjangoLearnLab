@@ -8,8 +8,9 @@ from posts.models import Post
 class CustomUser(AbstractUser):
     bio=models.TextField()
     profile_picture=models.ImageField()
-    followers=models.ManyToManyField(to='CustomUser')
-    following=models.ManyToManyField(to='CustomUser')
+    followers=models.ManyToManyField('self',symmetrical=False,related_name='following',)
+    following=models.ManyToManyField('self',related_name='followers')
+
 
 
 class Like(models.Model):

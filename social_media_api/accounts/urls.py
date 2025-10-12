@@ -4,7 +4,4 @@ from . import views
 
 app_name='accounts'
 
-router=DefaultRouter
-router.register(r'')
-
 
